@@ -13,6 +13,8 @@ require('./store/subscriber')
 
 axios.defaults.baseURL = process.env.VUE_APP_API_URL || 'http://127.0.0.1:8000/api/'
 
+console.log(process.env)
+
 Vue.config.productionTip = false
 
 Vue.use(SuiVue)
