@@ -12,3 +12,10 @@ export default {
     components: {AppMenu}
 }
 </script>
+
+<style>
+* {
+    font-family: 'Nunito', 'Segoe UI', sans-serif !important;
+    letter-spacing: .5px !important;
+}
+</style>
