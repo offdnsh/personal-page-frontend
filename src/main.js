@@ -6,7 +6,6 @@ import store from './store'
 import SuiVue from 'semantic-ui-vue'
 import 'semantic-ui-css/semantic.min.css'
 import axios from 'axios'
-import './assets/styles/app.css'
 import VueMeta from 'vue-meta'
 
 document.title = 'Загрузка страницы ...'
