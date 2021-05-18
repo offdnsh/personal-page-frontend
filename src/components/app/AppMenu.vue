@@ -4,7 +4,7 @@
             <sui-menu secondary>
                 <router-link is="sui-menu-item" style="font-weight: bold;margin-left: 0 !important;" :to="{ name: 'home' }">Elgeria</router-link>
                 <router-link is="sui-menu-item" :to="{ name: 'home' }">О проекте</router-link>
-                <router-link is="sui-menu-item" :to="{ name: 'home' }">Преподаватели</router-link>
+                <router-link is="sui-menu-item" :to="{ name: 'search' }">Преподаватели</router-link>
                 <sui-menu-menu position="right">
                     <template v-if="authenticated">
                         <sui-dropdown text="Аккаунт">

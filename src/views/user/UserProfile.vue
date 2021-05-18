@@ -8,7 +8,7 @@
                 <sui-grid v-if="user">
                     <sui-grid-row>
                         <sui-grid-column :width="4">
-                            <sui-image :src="`${user.photo}\preview`" size="medium" />
+                            <sui-image :src="`${user.photo}`" rounded size="medium"/>
                         </sui-grid-column>
                         <sui-grid-column :width="12">
                             <h1 style="margin-bottom: 1.6em;">{{ user.formatted_name }}</h1>
@@ -17,16 +17,21 @@
                                     <sui-grid-column :width="4">
                                         <sui-list>
                                             <sui-list-item>
-                                                <strong style="display: block;margin-bottom: 12px;">Номер телефона:</strong>
+                                                <strong style="display: block;margin-bottom: 12px;">Номер
+                                                    телефона:</strong>
                                                 {{ user.profile.phone || 'Не имеется' }}
                                             </sui-list-item>
                                             <sui-list-item>
-                                                <strong style="display: block;margin-bottom: 12px;">Дата рождения:</strong>
+                                                <strong style="display: block;margin-bottom: 12px;">Дата
+                                                    рождения:</strong>
                                                 {{ user.profile.birthday || 'Не имеется' }}
                                             </sui-list-item>
                                             <sui-list-item>
-                                                <strong style="display: block;margin-bottom: 12px;">Опыт работы:</strong>
-                                                {{ user.work_experience_at ? user.work_experience_at + ' лет' : 'Не имеется' }}
+                                                <strong style="display: block;margin-bottom: 12px;">Опыт
+                                                    работы:</strong>
+                                                {{
+                                                    user.work_experience_at ? user.work_experience_at + ' лет' : 'Не имеется'
+                                                }}
                                             </sui-list-item>
                                         </sui-list>
                                     </sui-grid-column>
@@ -37,11 +42,13 @@
                                                 <span class="lh">{{ user.profile.category || 'Не имеется' }}</span>
                                             </sui-list-item>
                                             <sui-list-item>
-                                                <strong style="display: block;margin-bottom: 12px;">Учёная степень:</strong>
+                                                <strong style="display: block;margin-bottom: 12px;">Учёная
+                                                    степень:</strong>
                                                 {{ user.profile.academic_degree || 'Не имеется' }}
                                             </sui-list-item>
                                             <sui-list-item>
-                                                <strong style="display: block;margin-bottom: 12px;">Учёное звание:</strong>
+                                                <strong style="display: block;margin-bottom: 12px;">Учёное
+                                                    звание:</strong>
                                                 {{ user.profile.academic_title || 'Не имеется' }}
                                             </sui-list-item>
                                         </sui-list>
@@ -49,7 +56,8 @@
                                     <sui-grid-column :width="5">
                                         <sui-list>
                                             <sui-list-item>
-                                                <strong style="display: block;margin-bottom: 12px;">Место работы:</strong>
+                                                <strong style="display: block;margin-bottom: 12px;">Место
+                                                    работы:</strong>
                                                 <span class="lh">{{ user.profile.place_of_work || 'Не имеется' }}</span>
                                             </sui-list-item>
                                             <sui-list-item>
@@ -64,14 +72,16 @@
                     </sui-grid-row>
                     <sui-grid-row>
                         <sui-grid-column :width="16">
-                            <sui-accordion is="sui-menu" style="width: 100%;margin-top: 32px;" vertical exclusive styled>
+                            <sui-accordion is="sui-menu" style="width: 100%;margin-top: 32px;" vertical exclusive
+                                           styled>
                                 <sui-accordion-title is="sui-menu-header">Обо мне</sui-accordion-title>
                                 <sui-accordion-content>
                                     <p class="lh">{{ user.profile.bio || 'Не имеется' }}</p>
                                 </sui-accordion-content>
                                 <sui-accordion-title is="sui-menu-header">Ссылки</sui-accordion-title>
                                 <sui-accordion-content>
-                                    <template v-if="user.profile.social.inst || user.profile.social.vk || user.profile.social.ok">
+                                    <template
+                                        v-if="user.profile.social.inst || user.profile.social.vk || user.profile.social.ok">
                                         <sui-table celled style="width: 420px;">
                                             <sui-table-body>
                                                 <sui-table-row>
@@ -94,34 +104,40 @@
                                 </sui-accordion-content>
                                 <sui-accordion-title is="sui-menu-header">Файлы</sui-accordion-title>
                                 <sui-accordion-content>
-                                    <sui-table celled padded>
-                                        <sui-table-header>
-                                            <sui-table-row>
-                                                <sui-table-header-cell>Наименование</sui-table-header-cell>
-                                                <sui-table-header-cell>Категория</sui-table-header-cell>
-                                            </sui-table-row>
-                                        </sui-table-header>
-                                        <sui-table-body v-if="files.length">
-                                            <sui-table-row
-                                                v-for="file in files"
-                                                :key="file.id"
-                                            >
-                                                <sui-table-cell>
-                                                    <a href="#" @click.prevent="downloadFile(file.filename)">{{ file.name }}</a>
-                                                </sui-table-cell>
-                                                <sui-table-cell>{{ file.category }}</sui-table-cell>
-                                            </sui-table-row>
-                                        </sui-table-body>
-                                        <sui-table-body v-else>
-                                            <sui-table-cell>Файлов не имеется</sui-table-cell>
-                                        </sui-table-body>
-                                    </sui-table>
+                                    <sui-segment vertical >
+                                        <sui-dimmer :active="loadingFiles" inverted>
+                                            <sui-loader size="small">Зазрузка файлов...</sui-loader>
+                                        </sui-dimmer>
+                                        <sui-table celled padded>
+                                            <sui-table-header>
+                                                <sui-table-row>
+                                                    <sui-table-header-cell>Наименование</sui-table-header-cell>
+                                                    <sui-table-header-cell>Категория</sui-table-header-cell>
+                                                </sui-table-row>
+                                            </sui-table-header>
+                                            <sui-table-body v-if="files.length">
+                                                <sui-table-row
+                                                    v-for="file in files"
+                                                    :key="file.id"
+                                                >
+                                                    <sui-table-cell>
+                                                        <a href="#"
+                                                           @click.prevent="downloadFile(file.filename)">{{ file.name }}</a>
+                                                    </sui-table-cell>
+                                                    <sui-table-cell>{{ file.category }}</sui-table-cell>
+                                                </sui-table-row>
+                                            </sui-table-body>
+                                            <sui-table-body v-else>
+                                                <sui-table-cell>Файлов не имеется</sui-table-cell>
+                                            </sui-table-body>
+                                        </sui-table>
+                                    </sui-segment>
                                 </sui-accordion-content>
                             </sui-accordion>
                         </sui-grid-column>
                     </sui-grid-row>
                 </sui-grid>
-                <sui-grid v-else>
+                <sui-grid v-if="(!loading && !user)">
                     <sui-grid-row>
                         <sui-grid-column>
                             <div style="text-align: center">
@@ -144,14 +160,15 @@ export default {
     data: () => ({
         loading: false,
         user: null,
-        files: []
+        files: [],
+        loadingFiles: true
     }),
-    created () {
-       this.fetchUserProfile()
+    created() {
+        this.fetchUserProfile()
         document.title = `Профиль @${this.$route.params.username}`
     },
     methods: {
-        fetchUserProfile () {
+        fetchUserProfile() {
             this.loading = true
             User.showProfile(this.$route.params.username).then(response => {
                 this.user = response.data
@@ -161,17 +178,25 @@ export default {
                 this.loading = false
             })
         },
-        fetchAllFiles () {
+        fetchAllFiles() {
+            this.loadingFiles = true
             File.getAllById(this.user.id).then(response => {
                 this.files = response.data
-                this.loading = false
+                this.loadingFiles = false
             }).catch(error => {
                 console.error(error)
             })
         },
-        downloadFile (filename) {
+        downloadFile(filename) {
+            this.loadingFiles = true
             File.download(filename).then(response => {
-                window.open(response.data.url)
+                let fileLink = document.createElement('a');
+
+                fileLink.href = response.data.url
+                fileLink.setAttribute('download', true)
+                document.body.appendChild(fileLink)
+                this.loadingFiles = false
+                fileLink.click()
             })
         }
     }

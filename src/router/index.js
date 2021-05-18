@@ -13,6 +13,7 @@ import ProfileSettings from "../views/account/ProfileSettings";
 import ProfileSocial from "../views/account/ProfileSocial";
 import UserProfile from "../views/user/UserProfile";
 import Files from "../views/account/Files";
+import Search from "../views/Search";
 
 Vue.use(VueRouter)
 
@@ -76,6 +77,11 @@ const routes = [
                 auth
             ]
         }
+    },
+    {
+        path: '/search',
+        name: 'search',
+        component: Search
     }
 ]
 

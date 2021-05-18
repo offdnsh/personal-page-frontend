@@ -20,10 +20,15 @@ async function showProfile(username) {
     return await axios.get(`u/${username}`)
 }
 
+async function search(query) {
+    return await axios.get(`search?query=${query}`)
+}
+
 export default {
     signup,
     signin,
     me,
     logout,
+    search,
     showProfile
 }
