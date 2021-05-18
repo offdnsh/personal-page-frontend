@@ -5,6 +5,7 @@ import store from './store'
 
 import SuiVue from 'semantic-ui-vue'
 import 'semantic-ui-css/semantic.min.css'
+import './assets/styles/app.css'
 import axios from 'axios'
 import VueMeta from 'vue-meta'
 
