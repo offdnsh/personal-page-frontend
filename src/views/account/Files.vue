@@ -5,7 +5,7 @@
                 <sui-grid-row>
                     <sui-grid-column>
                         <h4 style="margin-bottom: 12px;">Все файлы</h4>
-                        <p style="display: block;margin-bottom: 32px;">Всего фалов: {{ files.length }}</p>
+                        <p style="display: block;margin-bottom: 32px;">Всего файлов: {{ files.length }}</p>
                         <label for="upload-file" style="margin-bottom: 32px;" class="file-loader">
                             <input type="file" id="upload-file" multiple accept="image/*, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel.doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" @change="onChooseFile($event)" ref="file" hidden>
                             <span ref="filename">Нажмите для выбора файла</span>
