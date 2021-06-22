@@ -1,22 +1,15 @@
 <template>
-    <div style="margin-top: 32px;margin-bottom: 5em;">
+    <div data-aos="fade-down" style="margin-top: 32px;margin-bottom: 5em;">
         <sui-container>
-            <sui-menu secondary>
+            <sui-menu secondary style="border-bottom: solid 1px #eaedef;padding-bottom: 40px;">
                 <router-link is="sui-menu-item" style="font-weight: bold;margin-left: 0 !important;" :to="{ name: 'home' }">Elgeria</router-link>
-                <router-link is="sui-menu-item" :to="{ name: 'home' }">О проекте</router-link>
                 <router-link is="sui-menu-item" :to="{ name: 'search' }">Преподаватели</router-link>
                 <sui-menu-menu position="right">
                     <template v-if="authenticated">
-                        <sui-dropdown text="Аккаунт">
-                            <sui-dropdown-menu style="min-width: 170px;animation-duration: 0s !important">
-                                <router-link is="sui-dropdown-item" :to="{ name: 'users.profile', params: {'username': user.username} }">Мой профиль</router-link>
-                                <router-link is="sui-dropdown-item" :to="{ name: 'account.settings' }">Настройки</router-link>
-                                <router-link is="sui-dropdown-item" :to="{ name: 'account.files' }">Файлы</router-link>
-                                <sui-dropdown-item>Помощь</sui-dropdown-item>
-                                <sui-dropdown-divider />
-                                <sui-dropdown-item @click="onLogout"><span style="color: red;">Выйти</span></sui-dropdown-item>
-                            </sui-dropdown-menu>
-                        </sui-dropdown>
+                        <router-link is="sui-menu-item" :to="{ name: 'users.profile', params: {'username': user.username} }">Мой профиль</router-link>
+                        <router-link is="sui-menu-item" :to="{ name: 'account.settings' }">Настройки</router-link>
+                        <router-link is="sui-menu-item" :to="{ name: 'account.files' }">Файлы</router-link>
+                        <a is="sui-menu-item" @click="onLogout"><span style="color: red;">Выход</span></a>
                     </template>
                     <template v-else>
                         <router-link is="sui-menu-item" :to="{ name: 'auth.signin' }">Войти</router-link>

@@ -7,7 +7,9 @@
                         <h4 style="margin-bottom: 12px;">Все файлы</h4>
                         <p style="display: block;margin-bottom: 32px;">Всего файлов: {{ files.length }}</p>
                         <label for="upload-file" style="margin-bottom: 32px;" class="file-loader">
-                            <input type="file" id="upload-file" multiple accept="image/*, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel.doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" @change="onChooseFile($event)" ref="file" hidden>
+                            <input type="file" id="upload-file" multiple
+                                   accept="image/*, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel.doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+                                   @change="onChooseFile($event)" ref="file" hidden>
                             <span ref="filename">Нажмите для выбора файла</span>
                         </label>
                         <sui-dropdown
@@ -15,10 +17,11 @@
                             floating
                             labeled
                             icon="filter"
-                            class="icon"
+                            class="icon filtered-files"
                             v-model="filterBy"
                             text="Фильтрация"
                             :options="categories"
+                            :disabled="loading"
                         >
                         </sui-dropdown>
                         <sui-segment vertical>
@@ -29,7 +32,8 @@
                                 <sui-table-header>
                                     <sui-table-row>
                                         <sui-table-header-cell>Наименование</sui-table-header-cell>
-                                        <sui-table-header-cell v-if="filterBy === 'Всё'">Категория</sui-table-header-cell>
+                                        <sui-table-header-cell v-if="filterBy === 'Всё'">Категория
+                                        </sui-table-header-cell>
                                         <sui-table-header-cell>Дата загрузки</sui-table-header-cell>
                                         <sui-table-header-cell style="width: 80px;"></sui-table-header-cell>
                                     </sui-table-row>
@@ -41,22 +45,27 @@
                                     >
                                         <sui-table-cell>{{ file.name }}</sui-table-cell>
                                         <sui-table-cell v-if="filterBy === 'Всё'">
-                                            <select v-model="file.category" @change="onChangeCategory($event, file.id)">
-                                                <option
-                                                    v-for="category in [{ name: 'Остальное' }, { name: 'Награды' }, { name: 'Методички' }]"
-                                                    :value="category.name"
-                                                    :selected="category.name === file.category"
-                                                >{{ category.name }}</option>
-                                            </select>
+                                            <sui-form>
+                                                <select v-model="file.category" class="simple-select" @change="onChangeCategory($event, file.id)">
+                                                    <option
+                                                        v-for="category in [{ name: 'Остальное' }, { name: 'Награды' }, { name: 'Методички' }]"
+                                                        :value="category.name"
+                                                        :selected="category.name === file.category"
+                                                    >{{ category.name }}</option>
+                                                </select>
+                                            </sui-form>
                                         </sui-table-cell>
-                                        <sui-table-cell>{{ file.created_at }}</sui-table-cell>
+                                        <sui-table-cell>{{ file.created_at | formated_date }}</sui-table-cell>
                                         <sui-table-cell>
-                                            <sui-button size="small" @click.prevent="onDelete(file.filename)">Удалить</sui-button>
+                                            <sui-button size="small" negative @click.prevent="onDelete(file.filename)">Удалить
+                                            </sui-button>
                                         </sui-table-cell>
                                     </sui-table-row>
                                 </sui-table-body>
                                 <sui-table-body v-else>
-                                    <sui-table-cell v-if="filterBy != 'Всё'">Файлов категории <b>{{ filterBy }}</b> не имеется.</sui-table-cell>
+                                    <sui-table-cell v-if="filterBy != 'Всё'">Файлов категории <b>{{ filterBy }}</b> не
+                                        имеется.
+                                    </sui-table-cell>
                                     <sui-table-cell v-else>Файлов не имеется</sui-table-cell>
                                 </sui-table-body>
                             </sui-table>
@@ -107,7 +116,7 @@ export default {
         this.fetchFiles()
     },
     methods: {
-        fetchFiles () {
+        fetchFiles() {
             this.loading = true
             const params = new URLSearchParams(`category=${this.filterBy}`)
             File.getAll(params).then(response => {
@@ -133,18 +142,21 @@ export default {
                 }).catch(error => {
 
                 })
-
-                console.log(form)
             }
         },
-        onDelete (id) {
+        onDelete(id) {
+
+            if (!confirm('Вы действительно хотите удалить файл?')) {
+                return
+            }
+
             this.loading = true
             File.destroy(id).then(() => {
                 this.filterBy = 'Всё'
                 this.fetchFiles()
             })
         },
-        onChangeCategory (event, id) {
+        onChangeCategory(event, id) {
             this.loading = true
             const category = event.target.value
 

@@ -30,7 +30,7 @@
     cursor: pointer;
     border: dashed 2px #e5e4e4;
     border-radius: 4px;
-    padding: 20px 22px;
+    padding: 32px 22px;
     text-align: center;
     display: block;
 }
@@ -40,5 +40,258 @@
 }
 
 .file-loader span {
-    color: #666;
+    color: #777;
+    font-weight: 400;
+}
+
+.file-loader:hover span {
+    color: #1678C2;
+}
+
+.header {
+    margin-top: 32px;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+}
+
+
+.header h3 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 28px;
+    line-height: 38px;
+}
+
+.header p {
+    font-size: 14px;
+    line-height: 32px;
+    color: #555;
+    margin-bottom: 26px;
+}
+
+.header .arrow {
+    position: absolute;
+    right: 40%;
+    bottom: 18%;
+}
+
+.header .arrow img {
+    width: 380px;
+    transform: rotateX(0deg) rotateY(200deg);
+    opacity: .10;
+}
+
+.header .header__text {
+    width: 500px;
+}
+
+.header .header__image {
+    margin-left: auto;
+}
+
+.header .header__image img {
+    width: 480px;
+    margin-top: -4em;
+    margin-right: 3em;
+}
+
+.header div:last-child {
+
+}
+
+.section {
+    margin-bottom: 4em;
+    padding-bottom: 4em;
+}
+
+.benefit img {
+    width: 500px;
+    float: left;
+}
+
+.benefit h3 {
+    font-size: 20px;
+    font-weight: 800;
+    margin-bottom: 32px;
+    margin-top: 32px;
+}
+
+.benefit p {
+    line-height: 32px;
+}
+
+.about h3 {
+    font-size: 20px;
+    font-weight: 800;
+    margin-bottom: 32px;
+}
+
+.about p {
+    font-size: 14px;
+    line-height: 32px;
+    width: 70%;
+    display: block;
+}
+
+.about .item div {
+    background: #E6E8F0;
+    display: inline-block;
+    padding: 16px 20px 14px 20px;
+    border-radius: 8px;
+}
+
+.about .item svg {
+    color: #2246ec;
+    width: 24px;
+    height: 24px;
+}
+
+.about .item span {
+    font-size: 24px;
+    font-weight: 900;
+    color: #4361f6;
+}
+
+.about .item:last-child img {
+    width: 150px;
+}
+
+.about .item h3 {
+    margin: 28px 0;
+    font-size: 16px;
+}
+
+.ui.button {
+    padding: 14px 26px !important;
+    font-family: 'SF UI Text', 'Nunito', 'Segoe UI', sans-serif;
+    font-weight: 400 !important;
+}
+
+.ui.form {
+    padding: 1px;
+    margin: 2px 0;
+}
+
+.ui.form input {
+    padding: 12px 18px !important;
+}
+
+.ui.selection.dropdown {
+    padding: 14px 18px !important;
+}
+
+.ui.form input:focus, textarea:focus {
+    border-color: #1678C2 !important;
+    box-shadow: 0 0 0 3px #ebf0f5 !important;
+}
+
+.ui.dropdown .menu>.item, .ui.menu .ui.dropdown .menu>.item {
+    padding: 14px 16px !important;
+    border-radius: 0 !important;
+}
+
+.ui.selection.dropdown .menu>.item {
+    padding: 14px 16px !important;
+}
+
+.simple-select {
+    border: none !important;
+    width: auto !important;
+    padding: 0 !important;
+    font-family: inherit;
+    outline: none !important;
+}
+
+.filtered-files .menu {
+    width: 200px !important;
+}
+
+.ui.form .field>.selection.dropdown>.dropdown.icon {
+    top: 13px;
+    right: 16px;
+}
+
+.ui.selection.dropdown>.delete.icon, .ui.selection.dropdown>.dropdown.icon, .ui.selection.dropdown>.search.icon {
+    top: 13px;
+    right: 16px;
+}
+
+.ui.dropdown>.dropdown.icon {
+    font-family: Icons;
+}
+
+.ui.dropdown>.dropdown.icon::before {
+    content: '';
+    display: none;
+}
+
+.ui.dropdown>.dropdown.icon::after {
+    content: '\f078';
+}
+
+.ui.dropdown .menu .active.item {
+    font-weight: 400;
+}
+
+.profile__tabs .menu .item, .settings-tabs .menu .item {
+    margin-right: 45px !important;
+}
+
+.settings-tabs .ui.text.menu .active.item {
+    border-bottom: solid 2px #1678C2;
+    border-color: #1678C2 !important;
+}
+
+.settings-tabs .menu .active span {
+    color: #1678C2;
+    font-weight: 500;
+}
+
+.settings-tabs .menu {
+    border: 0;
+    height: 50px;
+    border-bottom: solid 2px #eee !important;
+}
+
+.settings-tabs .menu .item {
+    line-height: 50px;
+    padding: 0 !important;
+    border-bottom: solid 2px transparent;
+}
+
+.profile__tabs .menu .item span, .settings-tabs .menu .item span {
+    font-weight: 500;
+}
+
+.profile__tabs .ui.segment, .settings-tabs .ui.segment {
+    box-shadow: none !important;
+    border: none !important;
+    margin-top: 32px !important;
+    padding: 0 !important;
+    background: transparent;
+}
+
+.ui.inverted.dimmer .ui.loader, .ui.loader {
+    font-size: 13px;
+    font-weight: 400;
+}
+
+.panel .panel-footer {
+    margin-top: 20px;
+}
+
+textarea, .ui.accordion .title:not(.ui){
+    font-family: 'SF UI Text', 'Nunito', 'Segoe UI', sans-serif;
+    letter-spacing: .5px !important;
+}
+
+.ui.selection.dropdown:focus {
+    border-color: #1678C2 !important;
+    box-shadow: 0 0 0 3px #ebf0f5 !important;
+}
+
+.ui.selection.dropdown:focus .menu {
+    border-color: #1678C2 !important;
+    border-bottom: none !important;
 }

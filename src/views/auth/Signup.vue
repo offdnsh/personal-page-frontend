@@ -1,9 +1,9 @@
 <template>
-    <div>
+    <div class="auth-signup">
         <sui-container style="padding: 0 0.9em;">
             <sui-grid>
                 <sui-grid-row>
-                    <sui-grid-column :width="6">
+                    <sui-grid-column :width="7">
                         <h3 style="font-weight: 800;margin-bottom: 32px;">Присоединиться к нам.</h3>
                         <p style="line-height: 26px;margin-bottom: 32px;">Рады видеть вас на платформе где преподаватели размещают о себе информацию.</p>
                         <sui-segment vertical>
@@ -11,21 +11,24 @@
                                 <sui-loader size="small">Загрузка ...</sui-loader>
                             </sui-dimmer>
                             <sui-form @submit.prevent="onSubmit">
-                                <sui-form-field required>
-                                    <label>Имя</label>
-                                    <input type="text" name="first_name" v-model="form.first_name" placeholder="Введите ваше имя" />
-                                    <span class="error" v-if="errors.first_name">{{ errors.first_name[0] }}</span>
-                                </sui-form-field>
-                                <sui-form-field required>
-                                    <label>Фамилия</label>
-                                    <input type="text" name="last_name" v-model="form.last_name" placeholder="Введите вашу фамилию" />
-                                    <span class="error" v-if="errors.last_name">{{ errors.last_name[0] }}</span>
-                                </sui-form-field>
-                                <sui-form-field>
-                                    <label>Отчество</label>
-                                    <input type="text" name="patronymic" v-model="form.patronymic" placeholder="Введите ваше отчество" />
-                                    <span class="error" v-if="errors.patronymic">{{ errors.patronymic[0] }}</span>
-                                </sui-form-field>
+                                <sui-grid :columns="2" style="margin-bottom: 12px">
+                                    <sui-grid-row>
+                                        <sui-grid-column>
+                                            <sui-form-field required>
+                                                <label>Имя</label>
+                                                <input type="text" name="first_name" v-model="form.first_name" placeholder="Введите ваше имя" />
+                                                <span class="error" v-if="errors.first_name">{{ errors.first_name[0] }}</span>
+                                            </sui-form-field>
+                                        </sui-grid-column>
+                                        <sui-grid-column>
+                                            <sui-form-field required>
+                                                <label>Фамилия</label>
+                                                <input type="text" name="last_name" v-model="form.last_name" placeholder="Введите вашу фамилию" />
+                                                <span class="error" v-if="errors.last_name">{{ errors.last_name[0] }}</span>
+                                            </sui-form-field>
+                                        </sui-grid-column>
+                                    </sui-grid-row>
+                                </sui-grid>
                                 <sui-form-field required>
                                     <label>Имя пользователя</label>
                                     <input type="text" name="username" v-model="form.username" placeholder="Введите ваше имя пользователя" />
@@ -41,9 +44,12 @@
                                     <input type="password" name="password" v-model="form.password" placeholder="Введите ваш пароль" />
                                     <span class="error" v-if="errors.password">{{ errors.password[0] }}</span>
                                 </sui-form-field>
-                                <sui-button primary>Присоединиться</sui-button>
+                                <sui-button icon="user outline" label-position="right" primary>Присоединиться</sui-button>
                             </sui-form>
                         </sui-segment>
+                    </sui-grid-column>
+                    <sui-grid-column :width="2">
+
                     </sui-grid-column>
                 </sui-grid-row>
             </sui-grid>
@@ -64,7 +70,6 @@ export default {
         form: {
             first_name: '',
             last_name: '',
-            patronymic: '',
             username: '',
             email: '',
             password: ''

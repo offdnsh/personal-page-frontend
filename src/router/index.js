@@ -9,11 +9,11 @@ import Home from '../views/Home.vue'
 import Signup from '../views/auth/Signup'
 import Signin from '../views/auth/Signin'
 import Settings from '../views/account/Settings'
-import ProfileSettings from "../views/account/ProfileSettings";
-import ProfileSocial from "../views/account/ProfileSocial";
 import UserProfile from "../views/user/UserProfile";
 import Files from "../views/account/Files";
 import Search from "../views/Search";
+import Profile from "../views/user/Profile";
+import NotFound from "../views/account/NotFound";
 
 Vue.use(VueRouter)
 
@@ -44,26 +44,6 @@ const routes = [
         }
     },
     {
-        path: '/account/profile',
-        name: 'account.profile',
-        component: ProfileSettings,
-        meta: {
-            middleware: [
-                auth
-            ]
-        }
-    },
-    {
-        path: '/account/profile/social',
-        name: 'account.profile.social',
-        component: ProfileSocial,
-        meta: {
-            middleware: [
-                auth
-            ]
-        }
-    },
-    {
         path: '/u/:username',
         name: 'users.profile',
         component: UserProfile
@@ -82,6 +62,14 @@ const routes = [
         path: '/search',
         name: 'search',
         component: Search
+    },
+    {
+        path: '/t/:username',
+        component: Profile
+    },
+    {
+        path: '*',
+        component: NotFound
     }
 ]
 

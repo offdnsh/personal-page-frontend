@@ -21,7 +21,7 @@
                                     <input type="password" name="password" v-model="form.password" placeholder="Введите ваш пароль" />
                                     <span class="error" v-if="errors.password">{{ errors.password[0] }}</span>
                                 </sui-form-field>
-                                <sui-button primary>Войти</sui-button>
+                                <sui-button primary icon="sign-out alternate" label-position="right">Войти</sui-button>
                             </sui-form>
                         </sui-segment>
                     </sui-grid-column>
@@ -50,7 +50,8 @@ export default {
     }),
     methods: {
         ...mapActions({
-            attempt: 'auth/attempt'
+            attempt: 'auth/attempt',
+            snack: 'snack/snack'
         }),
         onSubmit () {
             this.loading = true
@@ -65,7 +66,12 @@ export default {
                     this.loading = false
                 }
                 if (error.response.status === 401) {
-                    this.errors = { email: ['Неверно указана электронная почта или пароль.'] }
+                    this.snack(
+                        {
+                            text: 'Неверно указана электронная почта или пароль.',
+                            type: 'danger'
+                        }
+                    )
                     this.loading = false
                 }
             })
