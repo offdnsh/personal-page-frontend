@@ -31,13 +31,13 @@
                         </sui-grid-column>
                         <sui-grid-column :width="8">
                             <h3 data-aos="fade-left" data-aos-delay="450">О проекте</h3>
-                            <p data-aos="fade-down-left" data-aos-delay="500"><strong>Elgeria</strong> - онлайнс сервис который открывает новую среду и новые возможности для преподавателя, размещая на личной странице позновательные материалы, информацию которая заинтересует студентов тем самым произойдет взаимодействие педагога как личность.</p>
+                            <p data-aos="fade-down-left" data-aos-delay="500"><strong>Elgeria</strong> - онлайн сервис который открывает новую среду и новые возможности для преподавателя, размещая на личной странице познавательные материалы, информацию которая заинтересует студентов тем самым произойдет взаимодействие педагога как личность.</p>
                         </sui-grid-column>
                     </sui-grid-row>
                 </sui-grid>
             </div>
             <div class="section benefit">
-                <h3 data-aos="fade-down">Преймещуства</h3>
+                <h3 data-aos="fade-down">Преимещуства</h3>
                 <sui-grid :columns="3" style="margin-top: 38px;">
                     <sui-grid-row>
                         <sui-grid-column data-aos="zoom-in" class="item">
