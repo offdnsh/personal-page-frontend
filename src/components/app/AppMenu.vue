@@ -38,7 +38,7 @@ export default {
         }),
         onLogout () {
             this.logout().then(() => {
-                this.$router.replace({ name: 'home' })
+                if (this.$route.path !== '/') this.$router.replace({ name: 'home' })
             })
         }
     }
