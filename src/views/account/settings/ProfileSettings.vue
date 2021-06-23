@@ -47,7 +47,7 @@
                                                 placeholder=""
                                                 selection
                                                 :labeled="false"
-                                                :options="[ { text: 'Не имеется', value: 0, key: 0 }, { key: 'Первая  квалификационная  категория', text: 'Первая  квалификационная  категория', key: 'Первая  квалификационная  категория', value: 'Первая  квалификационная  категория' }, { text: 'Высшая  квалификационная  категория', value: 'Высшая  квалификационная  категория' } ]"
+                                                :options="[ { text: 'Не имеется', value: '', key: '' }, { key: 'Первая  квалификационная  категория', text: 'Первая  квалификационная  категория', key: 'Первая  квалификационная  категория', value: 'Первая  квалификационная  категория' }, { text: 'Высшая  квалификационная  категория', value: 'Высшая  квалификационная  категория' } ]"
                                                 v-model="form.category"
                                             />
                                             <span class="error" v-if="errors.category">{{ errors.category[0] }}</span>
@@ -63,7 +63,7 @@
                                             <sui-dropdown
                                                 placeholder=""
                                                 selection
-                                                :options="[ { text: 'Не имеется',  value: 0, key: 0, }, { text: 'Кандидат наук', value: 'Кандидат наук', key: 'Кандидат наук', }, {  key: 'Доктор наук', text: 'Доктор наук', value: 'Доктор наук' } ]"
+                                                :options="[ { text: 'Не имеется',  value: '', key: '', }, { text: 'Кандидат наук', value: 'Кандидат наук', key: 'Кандидат наук', }, {  key: 'Доктор наук', text: 'Доктор наук', value: 'Доктор наук' } ]"
                                                 v-model="form.academic_degree"
                                             />
                                             <span class="error" v-if="errors.academic_degree">{{ errors.academic_degree[0] }}</span>
@@ -76,7 +76,7 @@
                                                 placeholder=""
                                                 selection
                                                 style="width: 100%;"
-                                                :options="[ { text: 'Не имеется',  value: 0, key: 0 }, { text: 'Доцент', value: 'Доцент', key: 'Доцент', }, {  key: 2, text: 'Профессор', value: 'Профессор', key: 'Профессор' } ]"
+                                                :options="[ { text: 'Не имеется',  value: '', key: '' }, { text: 'Доцент', value: 'Доцент', key: 'Доцент', }, {  key: 2, text: 'Профессор', value: 'Профессор', key: 'Профессор' } ]"
                                                 v-model="form.academic_title"
                                             />
                                             <span class="error" v-if="errors.academic_title">{{ errors.academic_title[0] }}</span>
@@ -138,9 +138,9 @@ export default {
             birthday: profile.birthday || '',
             bio: profile.bio || '',
             work_experience_at: profile.work_experience_at || '',
-            category:profile.category || 0,
-            academic_degree: profile.academic_degree || 0,
-            academic_title: profile.academic_title || 0,
+            category:profile.category || '',
+            academic_degree: profile.academic_degree || '',
+            academic_title: profile.academic_title || '',
             place_of_work: profile.place_of_work,
             position: profile.position
         }

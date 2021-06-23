@@ -10,6 +10,8 @@ import axios from 'axios'
 import VueMeta from 'vue-meta'
 import VueMask from 'v-mask'
 
+const plural = require('plural-ru');
+
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 
@@ -36,12 +38,23 @@ Vue.filter('formated_date', (value, format = {
     hour: 'numeric'
 }) => {
     try {
-        const date = new Date(value * 1000)
+
+        let date = Date.now();
+
+        if (typeof value === 'number') {
+            date = new Date(value * 1000)
+        } else {
+            date = new Date(value)
+        }
 
         return new Intl.DateTimeFormat('ru-RU', format).format(date)
     } catch (e) {
         throw e
     }
+})
+
+Vue.filter('plural', (num, ...args) => {
+    return plural(num, args);
 })
 
 store.dispatch('auth/attempt', JSON.parse(localStorage.getItem('token'))).then(() => {
@@ -54,4 +67,5 @@ store.dispatch('auth/attempt', JSON.parse(localStorage.getItem('token'))).then((
         }
     }).$mount('#app')
 })
+
 

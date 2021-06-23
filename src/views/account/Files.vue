@@ -57,7 +57,7 @@
                                         </sui-table-cell>
                                         <sui-table-cell>{{ file.created_at | formated_date }}</sui-table-cell>
                                         <sui-table-cell>
-                                            <sui-button size="small" negative @click.prevent="onDelete(file.filename)">Удалить
+                                            <sui-button size="small" negative @click.prevent="onDelete(file.id)">Удалить
                                             </sui-button>
                                         </sui-table-cell>
                                     </sui-table-row>

@@ -3,7 +3,7 @@
         <AppSnackbar />
         <div class="bg-section"></div>
         <AppMenu />
-        <transition name="fade" mode="out-in">
+        <transition mode="out-in">
             <router-view />
         </transition>
 
@@ -20,6 +20,52 @@ export default {
 </script>
 
 <style>
+
+@font-face {
+    font-family: 'SF UI Text';
+    font-weight: 400;
+    font-style: normal;
+    font-display: auto;
+    unicode-range: U+000-5FF;
+    src: local("SF UI Text"), url("/fonts/SFUIText-Regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: 'SF UI Text';
+    font-weight: 600;
+    font-style: normal;
+    font-display: auto;
+    unicode-range: U+000-5FF;
+    src: local("SF UI Text"), url("/fonts/SFUIText-Semibold.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: 'SF UI Text';
+    font-weight: 500;
+    font-style: normal;
+    font-display: auto;
+    unicode-range: U+000-5FF;
+    src: local("SF UI Text"), url("/fonts/SFUIText-Semibold.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: 'SF UI Text';
+    font-weight: 700;
+    font-style: normal;
+    font-display: auto;
+    unicode-range: U+000-5FF;
+    src: local("SF UI Text"), url("/fonts/SFUIText-Bold.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: 'SF UI Text';
+    font-weight: 800;
+    font-style: normal;
+    font-display: auto;
+    unicode-range: U+000-5FF;
+    src: local("SF UI Text"), url("/fonts/SFUIText-Heavy.ttf") format("truetype");
+}
+
 body, h1, h2, h3, h4, h5, .ui {
     font-family: 'SF UI Text', 'Nunito', 'Segoe UI', sans-serif !important;
     letter-spacing: .5px !important;
@@ -31,7 +77,7 @@ body, h1, h2, h3, h4, h5, .ui {
     height: 822px;
     z-index: -1;
     position: absolute;
-    opacity: .3;
+    opacity: .2;
     top: -5em;
     right: -12em;
     background-size: cover;

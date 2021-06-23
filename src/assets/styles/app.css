@@ -1,3 +1,4 @@
+
 .error {
     display: block;
     margin-top: 8px;
@@ -105,9 +106,20 @@
     padding-bottom: 4em;
 }
 
-.benefit img {
+.about img {
     width: 500px;
     float: left;
+}
+
+.about h3 {
+    font-size: 20px;
+    font-weight: 800;
+    margin-bottom: 32px;
+    margin-top: 4em;
+}
+
+.about p {
+    line-height: 32px;
 }
 
 .benefit h3 {
@@ -121,43 +133,43 @@
     line-height: 32px;
 }
 
-.about h3 {
+.benefit h3 {
     font-size: 20px;
     font-weight: 800;
     margin-bottom: 32px;
 }
 
-.about p {
+.benefit p {
     font-size: 14px;
     line-height: 32px;
     width: 70%;
     display: block;
 }
 
-.about .item div {
+.benefit .item div {
     background: #E6E8F0;
     display: inline-block;
     padding: 16px 20px 14px 20px;
     border-radius: 8px;
 }
 
-.about .item svg {
+.benefit .item svg {
     color: #2246ec;
     width: 24px;
     height: 24px;
 }
 
-.about .item span {
+.benefit .item span {
     font-size: 24px;
     font-weight: 900;
     color: #4361f6;
 }
 
-.about .item:last-child img {
+.benefit .item:last-child img {
     width: 150px;
 }
 
-.about .item h3 {
+.benefit .item h3 {
     margin: 28px 0;
     font-size: 16px;
 }
@@ -234,11 +246,12 @@
     font-weight: 400;
 }
 
-.profile__tabs .menu .item, .settings-tabs .menu .item {
-    margin-right: 45px !important;
+.profile-tabs .menu .item, .settings-tabs .menu .item {
+    margin-right: 56px !important;
 }
 
-.settings-tabs .ui.text.menu .active.item {
+.settings-tabs .ui.text.menu .active.item,
+.profile-tabs .ui.text.menu .active.item {
     border-bottom: solid 2px #1678C2;
     border-color: #1678C2 !important;
 }
@@ -248,23 +261,23 @@
     font-weight: 500;
 }
 
-.settings-tabs .menu {
+.profile-tabs .menu {
     border: 0;
     height: 50px;
-    border-bottom: solid 2px #eee !important;
+    border-bottom: solid 1px #eee !important;
 }
 
-.settings-tabs .menu .item {
-    line-height: 50px;
+.profile-tabs .menu .item {
+    line-height: 49px;
     padding: 0 !important;
     border-bottom: solid 2px transparent;
 }
 
-.profile__tabs .menu .item span, .settings-tabs .menu .item span {
+.profile-tabs .menu .item span, .settings-tabs .menu .item span {
     font-weight: 500;
 }
 
-.profile__tabs .ui.segment, .settings-tabs .ui.segment {
+.profile-tabs .ui.segment, .settings-tabs .ui.segment {
     box-shadow: none !important;
     border: none !important;
     margin-top: 32px !important;
@@ -284,6 +297,10 @@
 textarea, .ui.accordion .title:not(.ui){
     font-family: 'SF UI Text', 'Nunito', 'Segoe UI', sans-serif;
     letter-spacing: .5px !important;
+}
+
+textarea {
+    line-height: 26px !important;
 }
 
 .ui.selection.dropdown:focus {

@@ -46,7 +46,7 @@ const routes = [
     {
         path: '/u/:username',
         name: 'users.profile',
-        component: UserProfile
+        component: Profile
     },
     {
         path: '/account/files',
@@ -62,10 +62,6 @@ const routes = [
         path: '/search',
         name: 'search',
         component: Search
-    },
-    {
-        path: '/t/:username',
-        component: Profile
     },
     {
         path: '*',
