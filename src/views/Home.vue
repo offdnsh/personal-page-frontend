@@ -6,7 +6,7 @@
                     <img src="@/assets/images/buddy-arrow.png" alt="">
                 </div>
                 <div class="header__text">
-                    <h3 data-aos="fade-right">Создайте впечатлящию визитку преподавателя</h3>
+                    <h3 data-aos="fade-right">Создайте впечатляющую визитку преподавателя</h3>
                     <p data-aos="fade-right" data-aos-delay="50">Визитная карточка преподавателя, о рассказе, о себе, пройденных курсах, повышения квалификации, полученных дипломах, грамотах и других наград, показать всем результат своей педагогической деятельности.</p>
                     <template v-if="authenticated">
                         <router-link :to="{ name: 'account.settings' }" data-aos="fade-down" data-aos-delay="200">
